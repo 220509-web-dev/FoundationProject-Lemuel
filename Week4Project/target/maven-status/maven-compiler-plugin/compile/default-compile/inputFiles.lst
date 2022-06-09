@@ -1,0 +1,16 @@
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\util\ContextLoaderListener.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\models\NetflixAcc.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\dtos\Credentials.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\dtos\ResourceCreationResponse.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\util\UsernameNotAvailableException.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\util\InvalidCredentialsException.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\app\App.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\servlets\AuthServlet.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\services\NetflixService.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\util\InvalidRequestException.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\daos\NetflixAccDaoPostgres.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\filters\CustomFilter.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\util\ConnectionFactory.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\servlets\NetflixAccServlet.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\services\AuthService.java
+B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project\src\main\java\com\revature\project4\util\DataSourceException.java
