@@ -10,7 +10,6 @@ import com.revature.project4.servlets.NetflixAccServlet;
 
 import javax.servlet.*;
 import java.time.LocalDateTime;
-import java.util.EnumSet;
 
 public class ContextLoaderListener implements ServletContextListener {
 

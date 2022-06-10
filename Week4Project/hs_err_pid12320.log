@@ -1,0 +1,196 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 216096 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:389), pid=12320, tid=0x0000000000005ff4
+#
+# JRE version: OpenJDK Runtime Environment (8.0-b09) (build 1.8.0-332-b09)
+# Java VM: OpenJDK 64-Bit Server VM (25.71-b09 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000027739000):  JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=24564, stack(0x0000000028f80000,0x0000000029080000)]
+
+Stack: [0x0000000028f80000,0x0000000029080000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2:    207  316  s!   4       sun.misc.URLClassPath::getLoader (243 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00000000277bf000 JavaThread "Service Thread" daemon [_thread_blocked, id=4860, stack(0x0000000029180000,0x0000000029280000)]
+  0x000000002773c000 JavaThread "C1 CompilerThread3" daemon [_thread_in_vm, id=29336, stack(0x0000000029080000,0x0000000029180000)]
+=>0x0000000027739000 JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=24564, stack(0x0000000028f80000,0x0000000029080000)]
+  0x0000000027736000 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=13108, stack(0x0000000028e80000,0x0000000028f80000)]
+  0x0000000027731000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=27252, stack(0x0000000028d80000,0x0000000028e80000)]
+  0x000000002772b800 JavaThread "Attach Listener" daemon [_thread_blocked, id=34380, stack(0x0000000028c80000,0x0000000028d80000)]
+  0x000000002772a800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2524, stack(0x0000000028b80000,0x0000000028c80000)]
+  0x0000000026042800 JavaThread "Finalizer" daemon [_thread_blocked, id=27604, stack(0x0000000028980000,0x0000000028a80000)]
+  0x0000000027713000 JavaThread "Reference Handler" daemon [_thread_blocked, id=15320, stack(0x0000000028880000,0x0000000028980000)]
+  0x0000000002cd2800 JavaThread "main" [_thread_in_vm, id=36492, stack(0x0000000002bd0000,0x0000000002cd0000)]
+
+Other Threads:
+  0x0000000026036800 VMThread [stack: 0x0000000028780000,0x0000000028880000] [id=11068]
+  0x00000000277d1000 WatcherThread [stack: 0x0000000029280000,0x0000000029380000] [id=34620]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000005c1200000, size: 8174 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 153088K, used 13166K [0x0000000715b80000, 0x0000000720600000, 0x00000007c0000000)
+  eden space 131584K, 10% used [0x0000000715b80000,0x000000071685ba20,0x000000071dc00000)
+  from space 21504K, 0% used [0x000000071f100000,0x000000071f100000,0x0000000720600000)
+  to   space 21504K, 0% used [0x000000071dc00000,0x000000071dc00000,0x000000071f100000)
+ ParOldGen       total 349696K, used 0K [0x00000005c1200000, 0x00000005d6780000, 0x0000000715b80000)
+  object space 349696K, 0% used [0x00000005c1200000,0x00000005c1200000,0x00000005d6780000)
+ Metaspace       used 5501K, capacity 5804K, committed 6144K, reserved 1056768K
+  class space    used 592K, capacity 664K, committed 768K, reserved 1048576K
+
+Card table byte_map: [0x0000000012190000,0x0000000013190000] byte_map_base: 0x000000000f387000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000062857480
+ Begin Bits: [0x0000000014640000, 0x000000001c5f8000)
+ End Bits:   [0x000000001c5f8000, 0x00000000245b0000)
+
+Polling page: 0x0000000001280000
+
+CodeCache: size=245760Kb used=2068Kb max_used=2068Kb free=243691Kb
+ bounds [0x0000000002dd0000, 0x0000000003040000, 0x0000000011dd0000]
+ total_blobs=633 nmethods=357 adapters=190
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.203 Thread 0x000000002773c000 nmethod 350 0x0000000002fcf810 code [0x0000000002fcf980, 0x0000000002fcfb88]
+Event: 0.203 Thread 0x000000002773c000  351   !   3       java.lang.ClassLoader::getPackage (118 bytes)
+Event: 0.204 Thread 0x000000002773c000 nmethod 351 0x0000000002fcfe10 code [0x0000000002fcffe0, 0x0000000002fd0ae8]
+Event: 0.204 Thread 0x000000002773c000  352       3       java.lang.ref.WeakReference::<init> (7 bytes)
+Event: 0.204 Thread 0x000000002773c000 nmethod 352 0x0000000002fd0ed0 code [0x0000000002fd1040, 0x0000000002fd12f0]
+Event: 0.204 Thread 0x000000002773c000  353       3       java.io.File::exists (43 bytes)
+Event: 0.205 Thread 0x000000002773c000 nmethod 353 0x0000000002fd13d0 code [0x0000000002fd1560, 0x0000000002fd19e8]
+Event: 0.205 Thread 0x000000002773c000  354       3       java.io.FilterInputStream::<init> (10 bytes)
+Event: 0.205 Thread 0x000000002773c000 nmethod 354 0x0000000002fd1b10 code [0x0000000002fd1c80, 0x0000000002fd1ed0]
+Event: 0.205 Thread 0x000000002773c000  355       3       java.util.jar.JarFile::maybeInstantiateVerifier (96 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (6 events):
+Event: 0.018 Thread 0x0000000002cd2800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x0000000715b87cc0) thrown at [c:/openjdk/jdk8u/hotspot\src\share\vm\prims\jni.cpp, line 4014]
+Event: 0.018 Thread 0x0000000002cd2800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x0000000715b87fa8) thrown at [c:/openjdk/jdk8u/hotspot\src\share\vm\prims\jni.cpp, line 4014]
+Event: 0.137 Thread 0x0000000002cd2800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000716293340) thrown at [c:/openjdk/jdk8u/hotspot\src\share\vm\prims\jvm.cpp, line 1524]
+Event: 0.137 Thread 0x0000000002cd2800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000716293550) thrown at [c:/openjdk/jdk8u/hotspot\src\share\vm\prims\jvm.cpp, line 1524]
+Event: 0.137 Thread 0x0000000002cd2800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000716295c28) thrown at [c:/openjdk/jdk8u/hotspot\src\share\vm\prims\jvm.cpp, line 1524]
+Event: 0.137 Thread 0x0000000002cd2800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000716295e38) thrown at [c:/openjdk/jdk8u/hotspot\src\share\vm\prims\jvm.cpp, line 1524]
+
+Events (10 events):
+Event: 0.204 loading class org/codehaus/plexus/logging/console/ConsoleLogger
+Event: 0.204 loading class org/codehaus/plexus/logging/console/ConsoleLogger done
+Event: 0.204 loading class org/codehaus/plexus/logging/AbstractLogger
+Event: 0.204 loading class org/codehaus/plexus/logging/AbstractLogger done
+Event: 0.204 loading class org/codehaus/plexus/context/DefaultContext
+Event: 0.204 loading class org/codehaus/plexus/context/DefaultContext done
+Event: 0.205 loading class org/codehaus/plexus/context/ContextException
+Event: 0.205 loading class org/codehaus/plexus/context/ContextException done
+Event: 0.205 loading class org/codehaus/plexus/context/ContextMapAdapter
+Event: 0.205 loading class org/codehaus/plexus/context/ContextMapAdapter done
+
+
+Dynamic libraries:
+0x00007ff7af420000 - 0x00007ff7af455000 	B:\OPENJDK-JDK8\bin\java.exe
+0x00007ffaf6ef0000 - 0x00007ffaf7104000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffaf5520000 - 0x00007ffaf55e2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffaf4470000 - 0x00007ffaf480d000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffaf65d0000 - 0x00007ffaf667e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffaf5410000 - 0x00007ffaf54b7000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffaf6980000 - 0x00007ffaf6a24000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffaf58b0000 - 0x00007ffaf59c7000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffaf6680000 - 0x00007ffaf682b000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffaf4440000 - 0x00007ffaf4466000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffaf59e0000 - 0x00007ffaf5a09000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffaf4bd0000 - 0x00007ffaf4ce1000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffaf49c0000 - 0x00007ffaf4a5a000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffaf4320000 - 0x00007ffaf4435000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffae1140000 - 0x00007ffae13ce000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.25131.1000_none_75f4eb575e7be8d3\COMCTL32.dll
+0x00007ffaf54c0000 - 0x00007ffaf54f1000 	C:\WINDOWS\System32\IMM32.DLL
+0x00000000645a0000 - 0x0000000064671000 	B:\OPENJDK-JDK8\jre\bin\msvcr100.dll
+0x0000000062040000 - 0x00000000628d9000 	B:\OPENJDK-JDK8\jre\bin\server\jvm.dll
+0x00007ffaf63e0000 - 0x00007ffaf63e8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffaeaaf0000 - 0x00007ffaeaaf9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffaeec40000 - 0x00007ffaeec4a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffaeb230000 - 0x00007ffaeb264000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffaf5a80000 - 0x00007ffaf5af1000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffae1d40000 - 0x00007ffae1d4f000 	B:\OPENJDK-JDK8\jre\bin\verify.dll
+0x00007ffae13d0000 - 0x00007ffae13f9000 	B:\OPENJDK-JDK8\jre\bin\java.dll
+0x00007ffadb190000 - 0x00007ffadb1a6000 	B:\OPENJDK-JDK8\jre\bin\zip.dll
+0x00007ffaf5c00000 - 0x00007ffaf63d9000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffaf22a0000 - 0x00007ffaf2b59000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x00007ffaf4cf0000 - 0x00007ffaf5078000 	C:\WINDOWS\System32\combase.dll
+0x00007ffaf2160000 - 0x00007ffaf229e000 	C:\WINDOWS\SYSTEM32\wintypes.dll
+0x00007ffaf5b00000 - 0x00007ffaf5bf1000 	C:\WINDOWS\System32\SHCORE.dll
+0x00007ffaf5620000 - 0x00007ffaf567e000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffaf4250000 - 0x00007ffaf4271000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x00007ffaea340000 - 0x00007ffaea34a000 	B:\IntelliJ IDEA Community Edition 2022.1.1\plugins\maven\lib\maven3\lib\jansi-native\windows64\jansi.dll
+
+VM Arguments:
+jvm_args: -Dclassworlds.conf=B:\IntelliJ IDEA Community Edition 2022.1.1\plugins\maven\lib\maven3\bin\..\bin\m2.conf -Dmaven.home=B:\IntelliJ IDEA Community Edition 2022.1.1\plugins\maven\lib\maven3\bin\.. -Dlibrary.jansi.path=B:\IntelliJ IDEA Community Edition 2022.1.1\plugins\maven\lib\maven3\bin\..\lib\jansi-native -Dmaven.multiModuleProjectDirectory=B:\IntelliJ IDEA Community Edition 2022.1.1\JavaProjects\Week4Project 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher clean tomcat7:deploy
+java_class_path (initial): B:\IntelliJ IDEA Community Edition 2022.1.1\plugins\maven\lib\maven3\bin\..\boot\plexus-classworlds-2.6.0.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JRE_HOME=B:\OPENJDK-JDK8\jre
+USERNAME=lemue
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 25131 (10.0.25131.1000)
+
+CPU:total 12 (initial active 12) (12 cores per cpu, 1 threads per core) family 25 model 33 stepping 0, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv, bmi1
+
+Memory: 4k page, physical 33476820k(12550004k free), swap 38578388k(5248k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.71-b09) for windows-amd64 JRE (1.8.0-332-b09), built on Apr 25 2022 04:35:43 by "Administrator" with MS VC++ 10.0 (VS2010)
+
+time: Thu Jun 09 17:45:33 2022
+timezone: Eastern Daylight Time
+elapsed time: 0.209436 seconds (0d 0h 0m 0s)
+

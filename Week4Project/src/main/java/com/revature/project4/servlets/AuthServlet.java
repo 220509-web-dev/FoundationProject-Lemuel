@@ -2,6 +2,7 @@ package com.revature.project4.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.project4.dtos.Credentials;
+import com.revature.project4.models.NetflixAcc;
 import com.revature.project4.services.AuthService;
 
 import javax.servlet.ServletException;
@@ -41,64 +42,21 @@ public class AuthServlet extends HttpServlet {
             // Use the AuthService to validate that the provided credentials meet business rules
                 if (creds.getUsername() != null && creds.getPassword() != null)
                 {
+                    NetflixAcc netflixAcc = authService.login(creds.getUsername(), creds.getPassword());
                     authService.login(creds.getUsername(), creds.getPassword());
                     String z = String.valueOf(authService.login(creds.getUsername(), creds.getPassword()));
                     HttpSession session = req.getSession(); // use req.getSession(false) to prevent a session from being made
                     session.setAttribute("auth-user", z); // this attribute is visible on any requests with this session attached
+                    resp.setContentType("application/json");
+                    resp.getWriter().write(mapper.writeValueAsString(netflixAcc));
                 }
-
         {
 
         }
-            // after validation, if no exception thrown -send back response (establish HttpSession)
-
-       /* } catch (InvalidCredentialsException e) {
-            resp.setStatus(400);
-            resp.setContentType("application/json");
-            HashMap<String, Object> errorMessage = new HashMap<>();
-            errorMessage.put("code", 400);
-            errorMessage.put("message", "No user found with provided credentials");
-            errorMessage.put("timestamp", LocalDateTime.now().toString());
-
-            resp.getWriter().write(mapper.writeValueAsString(errorMessage));
-        }
-        */
-
     }
 
 }
 
-/*
-        try {
-                // Use the AuthService to validate that the provided credentials meet business rules
-                // List<NetflixAcc> users = new NetflixAccDAO().getAccs();
-                String providedUsername = (String) creds.getUsername();
-                String providedPassword = (String) creds.getPassword();
-                for (NetflixAcc user : users) {
-                if (providedUsername.equals(user.getUsername()) && providedPassword.equals(user.getPassword())) {
-                System.out.println("[LOG] - found user!");
 
-                // Because HTTP is a stateless protocol, we need a session to persist data across multiple requests
-                HttpSession session = req.getSession(); // use req.getSession(false) to prevent a session from being made
-                session.setAttribute("auth-user", user); // this attribute is visible on any requests with this session attached
-
-                resp.setStatus(204); // NO CONTENT (success but nothing to return)
-                return; // return here otherwise we continue and bad things might happen
-                }
-                }
-                // after validation, if no exception thrown -send back response (establish HttpSession)
-
-                } catch (InvalidCredentialsException e) {
-                resp.setStatus(400);
-                resp.setContentType("application/json");
-                HashMap<String, Object> errorMessage = new HashMap<>();
-        errorMessage.put("code", 400);
-        errorMessage.put("message", "No user found with provided credentials");
-        errorMessage.put("timestamp", LocalDateTime.now().toString());
-
-        resp.getWriter().write(mapper.writeValueAsString(errorMessage));
-        }
-
-*/
 
 
